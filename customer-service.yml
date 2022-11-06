@@ -4,11 +4,11 @@ spring:
   data:
     mongodb:
       port: 27017
-      uri: mongodb://localhost/customer
+      uri: ${URI_MONGODB}
 eureka:
   client:
     serviceUrl:
-      defaultZone: http://localhost:9093/eureka/
+      defaultZone: ${URI_EUREKA}
   instance:
     prefer-ip-address: true
     hostname: localhost
