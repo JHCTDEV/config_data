@@ -1,9 +1,9 @@
 server:
-  port: 8081
+  port: ${PORT_SERVICE}
 spring:
   data:
     mongodb:
-      port: 27017
+      port: ${PORT_MONGODB}
       uri: ${URI_MONGODB}
 eureka:
   client:
