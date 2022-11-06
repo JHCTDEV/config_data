@@ -1,10 +1,6 @@
 
 server:
-  port: 9090
-spring:
-  application:
-    name: api-gateway
----
+  port: ${PORT_SERVICE}
 spring:
   cloud:
     gateway:
@@ -24,18 +20,18 @@ spring:
         - id: transaction
           uri: lb://TRANSACTION-SERVICE/
           predicates:
-            - Path=/transaction/**
+            - Path=/transaction/**,/transactionType/**
       discovery:
         locator:
           enabled: true
 eureka:
   client:
     serviceUrl:
-      defaultZone: http://localhost:9093/eureka/
+      defaultZone: ${URI_EUREKA}
   instance:
     instance-id: ${spring.application.name}-${random.uuid}
     prefer-ip-address: true
-    hostname: localhost
+    hostname: ${HOST_NAME}
 ribbon:
   eureka:
     enabled: true
